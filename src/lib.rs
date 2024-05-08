@@ -33,58 +33,33 @@ mod ap_req;
 mod ap_options;
 mod authenticator;
 mod ap_rep;
+mod enc_ap_rep_part;
+mod krb_safe;
+mod krb_safe_body;
+mod krb_priv;
+mod enc_krb_priv_part;
+mod krb_cred;
+mod enc_krb_cred_part;
+mod krb_cred_info;
+mod krb_error;
+mod method_data;
+mod typed_data;
 
-// mod end_ap_rep_part;
-
-// mod krb_safe;
-
-// mod krb_safe_body;
-
-// mod krb_priv;
-
-// mod enc_krb_priv_part;
-
-// mod krb_cred;
-
-// mod enc_krb_cred_part;
-
-// mod krb_krb_cred_info;
-
-// mod krb_error;
-
-// mod method_data;
-
-// mod typed_data;
-
-// mod pa_enc_timestamp;
-
-// mod pa_enc_ts_enc;
-
-// mod etype_info_entry;
-
-// mod etype_info_entry;
-
-// mod etype_info;
-
-// mod etype_info2_entry;
-
-// mod etype_info2;
-
-// mod ad_if_relevant;
-
-// mod ad_kdc_issued;
-
-// mod ad_and_or;
-
-// mod ad_mandatory_for_kdc;
+// pre auth stuff follows
+mod pa_enc_timestamp;
+mod pa_enc_ts_enc;
+mod etype_info_entry;
+mod etype_info;
+mod etype_info2_entry;
+mod etype_info2;
+mod ad_if_relevant;
+mod ad_kdcissued;
+mod ad_and_or;
+mod ad_mandatory_for_kdc;
 
 #[cfg(test)]
 mod tests {
-    use super::*;
-    use rasn::{error::EncodeError, prelude::*};
-
     #[test]
     fn test() {
-
     }
 }
