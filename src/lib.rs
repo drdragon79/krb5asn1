@@ -12,29 +12,79 @@ mod pa_data;
 mod kerberos_flags;
 mod encrypted_data;
 mod encryption_key;
+mod checksum;
+mod ticket;
+mod enc_ticket_part;
+mod transited_encoding;
+mod ticket_flags;
+mod as_req;
+mod tgs_req;
+mod kdc_req;
+mod kdc_req_body;
+mod kdc_options;
+mod as_rep;
+mod tgs_rep;
+mod kdc_rep;
+mod enc_as_rep_part;
+mod enc_tgs_rep_part;
+mod enc_kdc_rep_part;
+mod last_req;
+mod ap_req;
+mod ap_options;
+mod authenticator;
+mod ap_rep;
 
-// mod checksum;
+// mod end_ap_rep_part;
 
-// mod ticket;
+// mod krb_safe;
 
-// mod enc_ticket_part;
+// mod krb_safe_body;
 
-// mod transited_encoding;
+// mod krb_priv;
 
-// mod ticket_flags;
+// mod enc_krb_priv_part;
 
-// mod as_req;
+// mod krb_cred;
 
+// mod enc_krb_cred_part;
+
+// mod krb_krb_cred_info;
+
+// mod krb_error;
+
+// mod method_data;
+
+// mod typed_data;
+
+// mod pa_enc_timestamp;
+
+// mod pa_enc_ts_enc;
+
+// mod etype_info_entry;
+
+// mod etype_info_entry;
+
+// mod etype_info;
+
+// mod etype_info2_entry;
+
+// mod etype_info2;
+
+// mod ad_if_relevant;
+
+// mod ad_kdc_issued;
+
+// mod ad_and_or;
+
+// mod ad_mandatory_for_kdc;
 
 #[cfg(test)]
 mod tests {
-    use rasn::error::DerDecodeErrorKind;
-
     use super::*;
+    use rasn::{error::EncodeError, prelude::*};
 
     #[test]
     fn test() {
+
     }
-
-
 }

@@ -1,1 +1,1 @@
-pub type microseconds = u32;
+pub type Microseconds = u32;

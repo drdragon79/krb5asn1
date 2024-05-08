@@ -1,7 +1,7 @@
 use rasn::prelude::*;
 use super::int32::Int32;
 
-#[derive(AsnType, Decode, Encode, Clone)]
+#[derive(AsnType, Decode, Encode, Debug, Clone)]
 pub struct PaData {
 
     #[rasn(tag(explicit(1)))]

@@ -2,7 +2,7 @@ use rasn::prelude::*;
 use super::int32::Int32;
 
 #[derive(AsnType, Debug, Decode, Encode, Clone)]
-pub struct EncryptionKeys {
+pub struct EncryptionKey {
 
     #[rasn(tag(explicit(0)))]
     pub keytype: Int32,

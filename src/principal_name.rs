@@ -4,7 +4,7 @@ use super::{
 };
 use rasn::prelude::*;
 
-#[derive(AsnType, Decode, Encode)]
+#[derive(AsnType, Decode, Encode, Clone, Debug)]
 pub struct PrincipalName {
 
     #[rasn(tag(explicit(0)))]

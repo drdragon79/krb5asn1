@@ -1,12 +1,12 @@
 use rasn::prelude::*;
-use super::int32::Int32;
+use crate::int32::Int32;
 
 #[derive(AsnType, Decode, Encode, Clone, Debug)]
-pub struct HostAddress {
+pub struct TransitedEncoding {
 
     #[rasn(tag(explicit(0)))]
-    pub addr_type: Int32,
+    pub tr_type: Int32,
 
     #[rasn(tag(explicit(1)))]
-    pub address: OctetString
+    pub contents: OctetString
 }
