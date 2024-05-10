@@ -1,1 +1,0 @@
-pub type UInt32 = u32;
