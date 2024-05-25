@@ -308,7 +308,7 @@ pub struct KdcReqBody {
     #[rasn(tag(explicit(2)))]
     pub realm: Realm,
     #[rasn(tag(explicit(3)))]
-    pub sanme: Option<PrincipalName>,
+    pub sname: Option<PrincipalName>,
     #[rasn(tag(explicit(4)))]
     pub from: Option<KerberosTime>,
     #[rasn(tag(explicit(5)))]

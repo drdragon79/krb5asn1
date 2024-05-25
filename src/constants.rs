@@ -1,7 +1,7 @@
 #![allow(dead_code)]
 #![allow(non_upper_case_globals)]
 
-mod pa {
+pub mod pa {
     pub const PA_TGS_REQ: i32 =                 1;
     pub const PA_ENC_TIMESTAMP: i32 =           2;
     pub const PA_PW_SALT: i32 =                 3;
@@ -58,15 +58,15 @@ mod auth {
     pub const AD_ETYPE_NEGOTIATION: i32 =             129; // (lzhu@windows.microsoft.com)
 }
 
-mod transited {
+pub mod transited {
     pub const DOMAIN_X500_COMPRESS: i32 = 1;
 }
 
-mod protocol {
+pub mod protocol {
     pub const pvno: i32 = 5; // Kerberos protocol version 5
 }
 
-mod message {
+pub mod message {
     pub const KRB_AS_REQ: i32 =       10;    // Request for initial authentication
     pub const KRB_AS_REP: i32 =       11;    // Response to KRB_AS_REQ request
     pub const KRB_TGS_REQ: i32 =      12;    // Request for authentication based on TGT
@@ -81,7 +81,7 @@ mod message {
     pub const KRB_ERROR: i32 =        30;    // Error response
 }
 
-mod name {
+pub mod name {
     pub const KRB_NT_UNKNOWN: i32 =         0;    // Name type not known
     pub const KRB_NT_PRINCIPAL: i32 =       1;    // Just the name of the principal as in DCE, or for users
     pub const KRB_NT_SRV_INST: i32 =        2;    // Service and other unique instance (krbtgt)
@@ -236,5 +236,22 @@ mod error {
             _ => None
         }
     }
-
 }
+
+pub mod kdcoptions {
+    pub const reserved: i32 = 0; 
+    pub const forwardable: i32 = 1; 
+    pub const forwarded: i32 = 2; 
+    pub const proxiable: i32 = 3; 
+    pub const proxy: i32 = 4; 
+    pub const allow_postdate: i32 = 5; 
+    pub const postdated: i32 = 6; 
+    pub const unused7: i32 = 7; 
+    pub const renewable: i32 = 8; 
+    pub const unused9: i32 = 9; 
+    pub const unused10: i32 = 10; 
+    pub const opt_hardware_auth: i32 = 11; 
+    pub const unused12: i32 = 12; 
+    pub const unused13: i32 = 13; 
+}
+
