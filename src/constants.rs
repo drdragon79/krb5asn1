@@ -239,19 +239,41 @@ mod error {
 }
 
 pub mod kdcoptions {
-    pub const reserved: i32 = 0; 
-    pub const forwardable: i32 = 1; 
-    pub const forwarded: i32 = 2; 
-    pub const proxiable: i32 = 3; 
-    pub const proxy: i32 = 4; 
-    pub const allow_postdate: i32 = 5; 
-    pub const postdated: i32 = 6; 
-    pub const unused7: i32 = 7; 
-    pub const renewable: i32 = 8; 
-    pub const unused9: i32 = 9; 
-    pub const unused10: i32 = 10; 
-    pub const opt_hardware_auth: i32 = 11; 
-    pub const unused12: i32 = 12; 
-    pub const unused13: i32 = 13; 
+    pub const reserved: usize = 0; 
+    pub const forwardable: usize = 1; 
+    pub const forwarded: usize = 2; 
+    pub const proxiable: usize = 3; 
+    pub const proxy: usize = 4; 
+    pub const allow_postdate: usize = 5; 
+    pub const postdated: usize = 6; 
+    pub const unused7: usize = 7; 
+    pub const renewable: usize = 8; 
+    pub const unused9: usize = 9; 
+    pub const unused10: usize = 10; 
+    pub const opt_hardware_auth: usize = 11; 
+    pub const unused12: usize = 12; 
+    pub const unused13: usize = 13; 
 }
 
+pub mod encryption {
+    pub const des_cbc_crc                     : usize =   1; //              6.2.3
+    pub const des_cbc_md4                     : usize =   2; //              6.2.2
+    pub const des_cbc_md5                     : usize =   3; //              6.2.1
+    // pub const [reserved]                      : usize =   4; // 
+    pub const des3_cbc_md5                    : usize =   5; // 
+    // pub const [reserved]                      : usize =   6; // 
+    pub const des3_cbc_sha1                   : usize =   7; // 
+    pub const dsaWithSHA1_CmsOID              : usize =   9; //            (pkinit)
+    pub const md5WithRSAEncryption_CmsOID     : usize =  10; //            (pkinit)
+    pub const sha1WithRSAEncryption_CmsOID    : usize =  11; //            (pkinit)
+    pub const rc2CBC_EnvOID                   : usize =  12; //            (pkinit)
+    pub const rsaEncryption_EnvOID            : usize =  13; //    (pkinit from PKCS#1 v1.5)
+    pub const rsaES_OAEP_ENV_OID              : usize =  14; //    (pkinit from PKCS#1 v2.0)
+    pub const des_ede3_cbc_Env_OID            : usize =  15; //            (pkinit)
+    pub const des3_cbc_sha1_kd                : usize =  16; //               6.3
+    pub const aes128_cts_hmac_sha1_96         : usize =  17; //           [KRB5_AES]
+    pub const aes256_cts_hmac_sha1_96         : usize =  18; //           [KRB5_AES]
+    pub const rc4_hmac                        : usize =  23; //           (Microsoft)
+    pub const rc4_hmac_exp                    : usize =  24; //           (Microsoft)
+    pub const subkey_keymaterial              : usize =  65; //      (opaque; PacketCable)
+}

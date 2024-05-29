@@ -936,3 +936,12 @@ pub struct AdAndOr {
 /// AD-MANDATORY-FOR-KDC    ::= AuthorizationData
 /// ```
 pub type AdMandatoryForKdc = AuthorizationData;
+
+
+// [MS-KILE Stuff follows]
+#[derive(AsnType, Decode, Encode, Debug, Clone)]
+pub struct KerbPaPacRequest {
+    #[rasn(tag(explicit(0)))]
+    pub include_pac: bool
+}
+

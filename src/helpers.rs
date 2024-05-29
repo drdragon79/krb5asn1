@@ -4,9 +4,10 @@
 use rasn::prelude::*;
 use crate::structures::*;
 use crate::constants::*;
+use bitvec::prelude::*;
 
 impl AsReq {
-    fn new(
+    pub fn new(
         padata: Option<SequenceOf<PaData>>,
         req_body: KdcReqBody
     ) -> AsReq {
@@ -17,7 +18,7 @@ impl AsReq {
 }
 
 impl KdcReq {
-    fn new(
+    pub fn new(
         pvno: Int32,
         msg_type: Int32,
         padata: Option<SequenceOf<PaData>>,
@@ -33,7 +34,7 @@ impl KdcReq {
 }
 
 impl KdcReqBody {
-    fn new(
+    pub fn new(
         kdc_options: KdcOptions,
         cname: Option<PrincipalName>,
         realm: Realm,
@@ -65,7 +66,7 @@ impl KdcReqBody {
 }
 
 impl PaData {
-    fn new(padata_type: Int32, padata_value: OctetString) -> PaData {
+    pub fn new(padata_type: Int32, padata_value: OctetString) -> PaData {
         PaData {
             padata_type,
             padata_value
@@ -74,10 +75,53 @@ impl PaData {
 }
 
 impl PrincipalName {
-    fn new(name_type: Int32, name_string: SequenceOf<KerberosString>) -> PrincipalName {
+    pub fn new(name_type: Int32, name_string: SequenceOf<KerberosString>) -> PrincipalName {
         PrincipalName {
             name_type,
             name_string
         }
     }
 }
+
+impl KerbPaPacRequest {
+    pub fn new(include_pac: bool) -> KerbPaPacRequest {
+        KerbPaPacRequest {
+            include_pac
+        }
+    }
+}
+
+pub trait KerberosFlagTrait {
+    fn construct(flags: &[usize]) -> Self;
+    
+}
+
+impl KerberosFlagTrait for KdcOptions {
+    fn construct(flags: &[usize]) -> Self {
+        let mut bv = bitvec![u8, Msb0; 0; 32];
+        for i in flags {
+            bv.set(*i, true)
+        }
+        bv
+    }
+}
+
+/// Der Encoder and Decoder Trait
+pub trait Dercoder {
+    fn derencoder(&self) -> Result<Vec<u8>, rasn::error::EncodeError>;
+    fn derdecoder(encoded: &[u8]) -> Result<Self, rasn::error::DecodeError> where Self: Sized;
+}
+
+/// Implement Dercoder for every type that implements Encode & Decode
+impl<T: Sized + Decode + Encode> Dercoder for T {
+    fn derencoder(&self) -> Result<Vec<u8>, rasn::error::EncodeError> {
+        let dercoder = rasn::Codec::Der;
+        dercoder.encode_to_binary(self)
+    }
+
+    fn derdecoder(encoded: &[u8]) -> Result<T, rasn::error::DecodeError> {
+        let dercoder = rasn::Codec::Der;
+        dercoder.decode_from_binary(encoded)
+    }
+}
+
